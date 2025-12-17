@@ -17,6 +17,10 @@ public class TodoService {
         return repo.findAll();
     }
 
+    public List<Todo> findAllOrdered() {
+        return repo.findAllByOrderByCreatedAtDesc();
+    }
+
     public Todo findById(Long id) {
         return repo.findById(id).orElseThrow(() -> new RuntimeException("Todo not found"));
     }
