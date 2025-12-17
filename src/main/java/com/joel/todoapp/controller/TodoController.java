@@ -4,6 +4,7 @@ import com.joel.todoapp.model.Todo;
 import com.joel.todoapp.service.TodoService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController
@@ -19,6 +20,12 @@ public class TodoController {
     @GetMapping
     public List<Todo> getAll() {
         return service.findAll();
+    }
+
+    @Operation(summary = "Get all todo items ordered by creation date")
+    @GetMapping("/ordered")
+    public List<Todo> getAllOrdered() {
+        return service.findAllOrdered();
     }
 
     @Operation(summary = "Get a todo item by its ID")

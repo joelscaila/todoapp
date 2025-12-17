@@ -3,9 +3,13 @@ package com.joel.todoapp.model;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import java.time.LocalDateTime;
 
 @Entity
-@Getter // Generates getters for all fields
+@Getter
 @Setter
 public class Todo {
     @Id
@@ -15,4 +19,11 @@ public class Todo {
     @Enumerated(EnumType.STRING)
     private TodoStatus status;
 
+
+    //Audit fields
+    @CreationTimestamp
+    private LocalDateTime createdAt;
+
+    @UpdateTimestamp
+    private LocalDateTime updatedAt;
 }
