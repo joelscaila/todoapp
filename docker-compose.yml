@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:18
+    container_name: todoapp-postgres
+    environment:
+      POSTGRES_USER: joel
+      POSTGRES_PASSWORD: joel_dev2025
+      POSTGRES_DB: todoapp
+      LANG: en_US.UTF-8
+      LC_ALL: en_US.UTF-8
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  todoapp:
+    build: .
+    container_name: todoapp-api
+    depends_on:
+      - postgres
+    environment:
+      SPRING_PROFILES_ACTIVE: postgres
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/todoapp
+      SPRING_DATASOURCE_USERNAME: joel
+      SPRING_DATASOURCE_PASSWORD: joel_dev2025
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+    ports:
+      - "8080:8080"
+
+volumes:
+  postgres_data:
