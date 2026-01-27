@@ -51,6 +51,8 @@ public class AuthService {
         user.setEmail(request.email());
         user.setPassword(passwordEncoder.encode(request.password()));
         user.setRole(Role.ROLE_USER); // default role
+
+        userRepository.save(user);
     }
 }
 

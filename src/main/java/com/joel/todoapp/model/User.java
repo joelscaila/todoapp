@@ -29,8 +29,11 @@ public class User {
     @Column(nullable = false)
     private String password; //hashed password
 
+    @Builder.Default
     @Enumerated(EnumType.STRING)
-    private Role role;
+    @Column(nullable = false)
+    private Role role = Role.ROLE_USER;
+
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Todo> todos;

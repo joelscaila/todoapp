@@ -1,15 +1,16 @@
 -- ============================
 -- DEMO USER (password: 123456)
 -- ============================
-INSERT INTO users (id, username, email, password, created_at, updated_at)
+INSERT INTO users (username, email, role, password, created_at, updated_at)
 VALUES (
-    1,
     'demo',
     'demo@example.com',
+    'ROLE_USER',
     '$2a$10$rdXsv5JDZnTS0jxHZMTfle/wERyAKMZdnsJpKdaG6lpBzTrDEKDNe',
     CURRENT_TIMESTAMP,
     CURRENT_TIMESTAMP
-);
+)
+ON CONFLICT (email) DO NOTHING;
 
 
 -- ============================

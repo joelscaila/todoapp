@@ -2,6 +2,7 @@ package com.joel.todoapp.service;
 
 import com.joel.todoapp.dto.TodoRequest;
 import com.joel.todoapp.dto.TodoResponse;
+import com.joel.todoapp.exception.TodoNotFoundException;
 import com.joel.todoapp.mapper.TodoMapper;
 import com.joel.todoapp.model.Todo;
 import com.joel.todoapp.model.User;
@@ -43,7 +44,7 @@ public class TodoService {
     public Todo findByIdForCurrentUser(Long id) {
         User user = userService.getCurrentUser();
         Todo todo = todoRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Todo not found"));
+                .orElseThrow(TodoNotFoundException::new);
 
         if (!todo.getUser().getId().equals(user.getId())) {
             throw new AccessDeniedException("Unauthorized access");
@@ -88,7 +89,7 @@ public class TodoService {
     public TodoResponse updateAsSupervisor(Long id, TodoRequest request) {
 
         Todo todo = todoRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Todo not found"));
+                .orElseThrow(TodoNotFoundException::new);
 
         todo.setTitle(request.title());
         todo.setStatus(request.status());
@@ -99,7 +100,7 @@ public class TodoService {
 
     public void deleteAsSupervisor(Long id) {
         Todo todo = todoRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Todo not found"));
+                .orElseThrow(TodoNotFoundException::new);
 
         todoRepository.delete(todo);
     }
