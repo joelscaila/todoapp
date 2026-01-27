@@ -2,7 +2,6 @@ package com.joel.todoapp.controller;
 
 import com.joel.todoapp.dto.*;
 import com.joel.todoapp.service.AuthService;
-import com.joel.todoapp.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
