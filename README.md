@@ -1,5 +1,11 @@
 # TodoApp – API REST con Spring Boot, JWT y PostgreSQL
 
+![Java](https://img.shields.io/badge/Java-21-orange)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.2-brightgreen)
+![Docker](https://img.shields.io/badge/Docker-ready-blue)
+![Status](https://img.shields.io/badge/Build-passing-success)
+![License](https://img.shields.io/badge/License-MIT-lightgrey)
+
 Aplicación backend profesional para la gestión de tareas (TODOs), desarrollada con **Spring Boot 3**, **JWT**, **PostgreSQL**, **Docker**, **JPA/Hibernate** y **Swagger/OpenAPI**.  
 Incluye autenticación segura, validaciones, tests automatizados y un entorno completamente dockerizado para facilitar la ejecución.
 
@@ -87,10 +93,10 @@ Esto habilita todos los endpoints protegidos.
 
 ---
 
-## 🏗️ Arquitectura
+## 🧱 Arquitectura general
 
 ```
-Controller → Service → Repository → PostgreSQL
+Client → Controller → Service → Repository → PostgreSQL
 ```
 
 - **Controller**: expone endpoints REST  
@@ -149,11 +155,17 @@ mvn test
 
 ---
 
-## 🔮 Próximas mejoras
+## 🔮 Roadmap
 
-- Migraciones con Flyway  
-- Paginación en endpoints  
-- Roles avanzados (admin)  
-- CI/CD con GitHub Actions  
-- Métricas con Spring Actuator  
-- Tests de integración con Testcontainers  
+- [ ] Migraciones con Flyway  
+- [ ] Tests de integración con Testcontainers  
+- [ ] CI/CD con GitHub Actions  
+- [ ] Paginación en endpoints  
+- [ ] Roles avanzados (admin)  
+- [ ] Métricas con Spring Actuator  
+
+---
+
+## 👨‍💻 Sobre el autor
+
+Desarrollador backend especializado en Java y Spring Boot, con experiencia en arquitecturas limpias, seguridad JWT, Docker y PostgreSQL.  
