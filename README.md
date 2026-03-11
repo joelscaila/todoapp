@@ -1,4 +1,4 @@
-# TodoApp – API REST con Spring Boot, JWT y PostgreSQL
+# TodoApp – REST API with Spring Boot, JWT and PostgreSQL
 
 ![Java](https://img.shields.io/badge/Java-21-orange)
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.2-brightgreen)
@@ -6,166 +6,146 @@
 ![Status](https://img.shields.io/badge/Build-passing-success)
 ![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
-Aplicación backend profesional para la gestión de tareas (TODOs), desarrollada con **Spring Boot 3**, **JWT**, **PostgreSQL**, **Docker**, **JPA/Hibernate** y **Swagger/OpenAPI**.  
-Incluye autenticación segura, validaciones, tests automatizados y un entorno completamente dockerizado para facilitar la ejecución.
+Professional backend application for task management (TODOs), built with **Spring Boot 3**, **JWT**, **PostgreSQL**, **Docker**, **JPA/Hibernate**, and **Swagger/OpenAPI**.  
+Includes secure authentication, validations, automated tests, and a fully dockerized environment for easy execution.
 
 ---
 
-## 🚀 Tecnologías principales
+## 🚀 Main Technologies
 
 - Java 21  
 - Spring Boot 3  
 - Spring Security + JWT  
 - PostgreSQL 15  
 - Docker & Docker Compose  
-- JPA/Hibernate  
+- JPA / Hibernate  
 - Swagger / OpenAPI 3  
 - JUnit 5 + Mockito  
 
 ---
 
-## 🐳 Cómo ejecutar el proyecto
+## 🐳 How to Run the Project
 
-El proyecto está preparado para que cualquier recruiter pueda levantarlo con un solo comando:
+The project is ready to run with a single command:
 
-```bash
-docker compose up -d
-```
+    docker compose up -d
 
-Esto iniciará:
+This will start:
 
-- La API de Spring Boot  
-- La base de datos PostgreSQL  
-- La carga automática de datos iniciales (usuario demo + TODOs)
+- The Spring Boot API  
+- The PostgreSQL database  
+- Automatic loading of initial demo data (demo user + TODOs)
 
 ---
 
-## 👤 Usuario demo
+## 👤 Demo User
 
-Para probar la API sin necesidad de registrarse:
+To test the API without registering:
 
-```
-username: demo
-password: 123456
-```
+    username: demo
+    password: 123456
 
 ---
 
-## 📘 Documentación Swagger
+## 📘 Swagger Documentation
 
-Una vez levantado el proyecto, accede a:
+Once the project is running, open:
 
-🔗 http://localhost:8080/swagger-ui.html
+http://localhost:8080/swagger-ui.html
 
-### ⚠️ Importante para evitar errores 403
+### ⚠️ To avoid 403 errors
 
-1. Haz login en el endpoint `/api/auth/login`  
-2. Copia el token JWT que recibes  
-3. Pulsa el botón **“Authorize”** arriba a la derecha en Swagger  
-4. Introduce el token:
+1. Log in using `/api/auth/login`  
+2. Copy the JWT token  
+3. Click the **Authorize** button in Swagger  
+4. Paste the token:
 
-```
-<tu_token>
-```
-
-Esto habilita todos los endpoints protegidos.
+        <your_token_here>
 
 ---
 
-## 📡 Endpoints principales
+## 📡 Main Endpoints
 
-### 🔐 Autenticación
+### 🔐 Authentication
 
-| Método | Endpoint           | Descripción        |
-|--------|--------------------|--------------------|
-| POST   | /api/auth/register | Registrar usuario  |
-| POST   | /api/auth/login    | Obtener JWT        |
+| Method | Endpoint            | Description   |
+|--------|---------------------|---------------|
+| POST   | /api/auth/register  | Register user |
+| POST   | /api/auth/login     | Get JWT token |
 
 ### 📝 TODOs
 
-| Método | Endpoint          | Descripción             |
-|--------|-------------------|-------------------------|
-| GET    | /api/todos        | Listar todos del usuario |
-| POST   | /api/todos        | Crear un TODO           |
-| GET    | /api/todos/{id}   | Obtener un TODO         |
-| PUT    | /api/todos/{id}   | Actualizar un TODO      |
-| DELETE | /api/todos/{id}   | Eliminar un TODO        |
+| Method | Endpoint           | Description        |
+|--------|--------------------|--------------------|
+| GET    | /api/todos         | List user's TODOs  |
+| POST   | /api/todos         | Create a TODO      |
+| GET    | /api/todos/{id}    | Get a TODO         |
+| PUT    | /api/todos/{id}    | Update a TODO      |
+| DELETE | /api/todos/{id}    | Delete a TODO      |
 
 ---
 
-## 🧱 Arquitectura general
+## 🧱 General Architecture
 
-```
-Client → Controller → Service → Repository → PostgreSQL
-```
+    Client -> Controller -> Service -> Repository -> PostgreSQL
 
-- **Controller**: expone endpoints REST  
-- **Service**: lógica de negocio  
-- **Repository**: acceso a datos con JPA  
-- **Security**: JWT, filtros y configuración  
-- **Exception**: manejo global de errores  
-- **DTOs**: validaciones y transporte de datos  
+- **Controller**: exposes REST endpoints  
+- **Service**: business logic  
+- **Repository**: data access with JPA  
+- **Security**: JWT filters and configuration  
+- **Exception**: global error handling  
+- **DTOs**: validation and data transport  
 
 ---
 
-## 📁 Estructura del proyecto
+## 📁 Project Structure
 
-```
-src/main/java/com/joel/todoapp
- ├── config
- ├── controller
- ├── dto
- ├── exception
- ├── mapper
- ├── model
- ├── repository
- ├── security
- └── service
-```
+    src/main/java/com/joel/todoapp
+     ├── config
+     ├── controller
+     ├── dto
+     ├── exception
+     ├── mapper
+     ├── model
+     ├── repository
+     ├── security
+     └── service
 
 ---
 
 ## 🧪 Tests
 
-El proyecto incluye tests para:
+The project includes tests for:
 
-- Servicios  
-- Controladores  
-- Seguridad  
-- Excepciones  
+- Services  
+- Controllers  
+- Security  
+- Exceptions  
 - Mappers  
 
-Ejecutar tests:
+Run tests:
 
-```bash
-mvn test
-```
+    mvn test
 
 ---
 
-## 🧠 Decisiones técnicas
+## 🧠 Technical Decisions
 
-- JWT para autenticación stateless y escalable  
-- Docker Compose para ejecución sin configuración manual  
-- PostgreSQL como base de datos realista  
-- Perfiles H2/Postgres para desarrollo y testing  
-- DTOs + validaciones para integridad de datos  
-- GlobalExceptionHandler para respuestas consistentes  
-- Swagger para documentación clara y navegable  
+- JWT for stateless and scalable authentication  
+- Docker Compose for zero‑configuration execution  
+- PostgreSQL as a realistic production database  
+- H2/Postgres profiles for development and testing  
+- DTOs + validations for data integrity  
+- GlobalExceptionHandler for consistent error responses  
+- Swagger for clear and navigable documentation  
 
 ---
 
 ## 🔮 Roadmap
 
-- [ ] Migraciones con Flyway  
-- [ ] Tests de integración con Testcontainers  
-- [ ] CI/CD con GitHub Actions  
-- [ ] Paginación en endpoints  
-- [ ] Roles avanzados (admin)  
-- [ ] Métricas con Spring Actuator  
-
----
-
-## 👨‍💻 Sobre el autor
-
-Desarrollador backend especializado en Java y Spring Boot, con experiencia en arquitecturas limpias, seguridad JWT, Docker y PostgreSQL.  
+- [ ] Flyway migrations  
+- [ ] Integration tests with Testcontainers  
+- [ ] CI/CD with GitHub Actions  
+- [ ] Pagination in endpoints  
+- [ ] Advanced roles (admin)  
+- [ ] Metrics with Spring Actuator  
