@@ -11,7 +11,7 @@ Includes secure authentication, validations, automated tests, and a fully docker
 
 ---
 
-## 🚀 Main Technologies
+##  Main Technologies
 
 - Java 21  
 - Spring Boot 3  
@@ -24,7 +24,7 @@ Includes secure authentication, validations, automated tests, and a fully docker
 
 ---
 
-## 🐳 How to Run the Project
+##  How to Run the Project
 
 The project is ready to run with a single command:
 
@@ -38,7 +38,7 @@ This will start:
 
 ---
 
-## 👤 Demo User
+##  Demo User
 
 To test the API without registering:
 
@@ -47,7 +47,7 @@ To test the API without registering:
 
 ---
 
-## 📘 Swagger Documentation
+##  Swagger Documentation
 
 Once the project is running, open:
 
@@ -64,16 +64,16 @@ http://localhost:8080/swagger-ui.html
 
 ---
 
-## 📡 Main Endpoints
+##  Main Endpoints
 
-### 🔐 Authentication
+###  Authentication
 
 | Method | Endpoint            | Description   |
 |--------|---------------------|---------------|
 | POST   | /api/auth/register  | Register user |
 | POST   | /api/auth/login     | Get JWT token |
 
-### 📝 TODOs
+### 📝TODOs
 
 | Method | Endpoint           | Description        |
 |--------|--------------------|--------------------|
@@ -85,7 +85,7 @@ http://localhost:8080/swagger-ui.html
 
 ---
 
-## 🧱 General Architecture
+## General Architecture
 
     Client -> Controller -> Service -> Repository -> PostgreSQL
 
@@ -98,7 +98,7 @@ http://localhost:8080/swagger-ui.html
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
     src/main/java/com/joel/todoapp
      ├── config
@@ -113,7 +113,7 @@ http://localhost:8080/swagger-ui.html
 
 ---
 
-## 🧪 Tests
+##  Tests
 
 The project includes tests for:
 
@@ -129,7 +129,7 @@ Run tests:
 
 ---
 
-## 🧠 Technical Decisions
+##  Technical Decisions
 
 - JWT for stateless and scalable authentication  
 - Docker Compose for zero‑configuration execution  
@@ -141,7 +141,7 @@ Run tests:
 
 ---
 
-## 🔮 Roadmap
+##  Roadmap
 
 - [ ] Flyway migrations  
 - [ ] Integration tests with Testcontainers  
